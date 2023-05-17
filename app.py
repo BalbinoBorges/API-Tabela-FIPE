@@ -16,12 +16,7 @@ def obter_dados_fipe():
     response = requests.get(url, headers=headers)
     data = response.json()
 
-    # Suporte ao formato JSONP para uso no Power BI
-    callback = request.args.get('callback')
-    if callback:
-        return f"{callback}({jsonify(data).data.decode('utf-8')})"
-    else:
-        return jsonify(data)
+    return jsonify(data['Valor'])
 
 if __name__ == '__main__':
     from flask_cors import CORS
