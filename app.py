@@ -24,4 +24,7 @@ def obter_dados_fipe():
         return jsonify(data)
 
 if __name__ == '__main__':
+    from flask_cors import CORS
+
+CORS(app)
     app.run()
